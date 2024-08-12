@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!--to intgrate css file with html-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>  
+        <form action="{{ url_for('predict')}}" method="post">
+	    <h1>Enter the Information Below and find if a Customer will Churn out or not</h1>
+    <div class="contentform">
+    	<div class="leftcontact">
+			      <div class="form-group">
+			        <p>Credit Score<span>*</span></p>
+			        <span class="icon-case"></span>
+				        <input name="CreditScore"  name="CreditScore" type="number" >
+       </div> 
+            <div class="form-group">
+            <p>Age <span>*</span></p>
+            <span class="icon-case"></span>
+				<input name="Age" required="required">
+                
+			</div>
+			<div class="form-group">
+			<p>Enter the Account Balance:  <span>*</span></p>
+			<span class="icon-case"></span>
+				<input name="Balance" required="required">
+			</div>
+	</div>
+	<div class="rightcontact">	
+			<div class="form-group">
+			<p>Is the Customer Active Member (1=Yes, 0=No)<span>*</span></p>
+			<span class="icon-case"></span>
+				<input name="IsActiveMember" required="required">
+			</div>	
+            <div class="form-group">
+                <p>Do you have Complain (1=Yes, 0=No)<span>*</span></p>
+                <span class="icon-case"></span>
+                    <input name="Complain" required="required">
+                </div>	
+	</div>
+	</div>
+<button  type="submit " class="btn btn-lg btn-info mb-5 ml-5" style="box-shadow: 0 4px 15px 0 rgba(43, 134, 131, 0.75)   ; background-image: rgba(17, 99, 96, 0.75);">Predict whether the Customer will leave the bank or not?</button>
+        <br><br><h3 class="alert alert-primary text-center" role="alert">{{ prediction_text }}<h3>
+</form>	
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    background-color: rgba(93, 100, 167, 0.74)!important;
+    background-size: 100% 100%!important;
+}
+
+/* The heading of the white box */
+form h1 {
+  font-size: 18px;
+  background:rgb(31, 131, 167) none repeat scroll 0% 0%;
+  color: rgb(255, 255, 255);
+  padding: 22px 25px;
+  border-radius: 5px 5px 0px 0px;
+  margin: auto;
+  text-shadow: none; 
+  text-align:left
+}
+
+/* The white box in the middel */
+form {
+  border-radius: 5px;
+  max-width:700px;
+  width:100%;
+  margin: 3% auto;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* The red * stars */
+p span {
+  color: #F00;
+}
+
+/* The input box boundaries */
+input {
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #41a2e4;
+  margin-bottom: 15px;
+  width: 80%;
+  height: 40px;
+  float: left;
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration:inherit
+}
+
+textarea {
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #61a9bb;
+  margin: 0;
+  width: 75%;
+  height: 130px; 
+  float: left;
+  padding: 0px 15px;
+}
+
+.form-group {
+  overflow: hidden;
+  clear: both;
+}
+
+.contentform {
+  padding: 40px 30px;
+}
+/* Dots between the inputs*/
+.leftcontact {
+  width:49.5%; 
+  float:left;
+  border-right: 1px dotted #41a2e4;
+  box-sizing: border-box;
+  padding: 0px 15px 0px 0px;
+}
+
+.rightcontact {
+  width:45%;
+  float:right;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 15px;
+}
+/*!--to intgrate javascript file with html*/
+    </style>
+</body>
+</html>
